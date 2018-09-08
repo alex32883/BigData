@@ -1,0 +1,27 @@
+[root@server2 alex]# cat teacher.py
+counter = dict()
+with open('/root/alex/data1') as f:
+    for line in f:
+      dt  = line.split("[")[1].split(":")[0]
+      if counter.get(dt) == None:
+        counter[dt] = 1
+      else:
+        counter[dt] = counter.get(dt) + 1
+
+for key in counter.keys():
+  print(key + "," + str(counter.get(key)))
+[root@server2 alex]# cat teacher2.py
+counter = dict()
+with open('/root/alex/data1') as f:
+    for line in f:
+      anyname = line.split("[")[1]
+      dt = anyname.split(":")[0]
+      if counter.get(dt) == None:
+        counter[dt] = 1
+      else:
+        counter[dt] = counter.get(dt) + 1
+
+for key in counter.keys():
+  print(key + "," + str(counter.get(key)))
+[root@server2 alex]#
+[root@server2 alex]#

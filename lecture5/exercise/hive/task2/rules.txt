@@ -1,5 +1,0 @@
-1. Movie ID is unique field. That means you have to check for any unique key violation
-2. rating should be for a valid movie. That means movieId in rating data file should be present in Movie table
-3. movieId can't be null in links table
-4. There should not be any duplicate record in any table
-5. Each data file would have a header record that shouldn't be populated in target(final) table

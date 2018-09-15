@@ -1,0 +1,9 @@
+create table daily_sales (p_id int, p_name string, price double, sales_date string);
+
+create table weekly_sales (p_id int, p_name string, price double) partitioned by (sales_date string);
+
+insert into daily_sales values (1,'p1',5,'2017-11-11');
+insert into daily_sales values (2,'p2',15,'2017-11-11');
+insert into daily_sales values (1,'p1',5,'2017-11-11');
+
+insert into weekly_sales partition (sales_date) select p_id, p_name, sum(price), sales_date from daily_sales group by p_id, p_name, sales_date;
